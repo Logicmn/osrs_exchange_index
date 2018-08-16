@@ -1,0 +1,17 @@
+{% extends 'bootstrap/base.html' %}
+
+<!-- Navigation Bar -->
+{% block navbar %}
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Crypto</a>
+      </div>
+    </div>
+  </nav>
+{% endblock %}
+
+<!-- Title & Content -->
+{% block page_title %} {% endblock %}
+
+{% block content %} {% endblock %}
