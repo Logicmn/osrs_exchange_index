@@ -1,33 +1,30 @@
 {% extends 'base.html' %}
 
 <!-- Content Block -->
-{% block page_title %} Movies {% endblock %}
+{% block page_title %} OSRS Grand Exchange {% endblock %}
 
 {% block content %}
   <div class="container">
-    <div class="header"><h1>IMDB movies</h1></div>
+    <div class="header"><h1>Price Index</h1></div>
     <hr />
 
     <!-- Table -->
     <table class="table table-hover">
       <tr>
-        <th>movies</th>
-        <th>Critical Reviews</th>
-        <th>Duration (minutes)</th>
-        <th>IMDB Score</th>
+        <th>ITEM</th>
+        <th>BEING SOLD</th>
+        <th>BEING BOUGHT</th>
+        <th>PRICE</th>
       </tr>
 
-      {% for movie in movie_names %}
+      {% for item in ge_data %}
       <tr>
-        <td>{{ movie}}</td>
-        <td>{{ movies[movie]['critical_reviews'] }}</td>
-        <td>{{ movies[movie]['duration'] }}</td>
-        <td>{{ movies[movie]['imdb_score'] }}</td>
+        <td>{{ item['name'] }}</td>
+        <td>{{ item['sell_quantity'] }}</td>
+        <td>{{ item['buy_quantity'] }}</td>
+        <td>{{ item['overall_average'] }}</td>
       </tr>
       {% endfor %}
     </table>
-
-    <!-- Image -->
-        <img src="{{ url_for('static', filename='ge.png') }}" />
   </div>
 {% endblock %}
