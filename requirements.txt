@@ -1,4 +1,6 @@
 requests
 flask
 flask_bootstrap
-Flask-WTF
+flask-wtf
+flask-sqlalchemy
+flask-migrate
