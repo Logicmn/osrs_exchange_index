@@ -33,7 +33,3 @@ def index():
             return render_template('index.html', form=form)
 
     return render_template('index.html', form=form)
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
