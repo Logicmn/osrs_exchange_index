@@ -2,7 +2,7 @@ from flask import render_template, flash, request, redirect
 
 from app import app
 from app.forms import SubmitForm
-from app.exchange import Item
+from app.exchange import GameItem
 
 
 
@@ -15,14 +15,14 @@ def index():
         id = form.input.data
         print("hello")
         try:
-            name = Item.name(id)
-            price = Item.price(id)
-            members = Item.members(id)
-            buy_avg = Item.buy_avg(id)
-            sell_avg = Item.sell_avg(id)
-            buy_vol = Item.buy_vol(id)
-            sell_vol = Item.sell_vol(id)
-            total_vol = Item.total_vol(id)
+            name = GameItem.name(id)
+            price = GameItem.price(id)
+            members = GameItem.members(id)
+            buy_avg = GameItem.buy_avg(id)
+            sell_avg = GameItem.sell_avg(id)
+            buy_vol = GameItem.buy_vol(id)
+            sell_vol = GameItem.sell_vol(id)
+            total_vol = GameItem.total_vol(id)
             return render_template('index.html',form=form, name=name, price=price, members=members,
             buy_avg=buy_avg, sell_avg=sell_avg, buy_vol=buy_vol, sell_vol=sell_vol,
             total_vol=total_vol)
