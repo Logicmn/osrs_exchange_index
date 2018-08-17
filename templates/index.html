@@ -19,27 +19,45 @@
       {% endif %}
     {% endwith %}
 
-    <form action="{{ url_for('index') }}" method="post">
-      {{ form.csrf_token }}
-      {{ form.input }}
-      <input class="btn btn-primary" type="submit" value="Search">
-    </form>
+    <div class="row">
 
-    <!-- Table -->
-    <table class="table table-hover">
-      <tr>
-        <th>ITEM</th>
-        <th>BEING SOLD</th>
-        <th>BEING BOUGHT</th>
-        <th>PRICE</th>
-      </tr>
+      <div class="col-sm-4">
+        <form class="form-inline" action="/" method="post">
+          <div class="form-group">
+            <div class="form-group">
+              {{ form.hidden_tag() }}
+              {{ form.csrf_token }}
+              {{ form.input(class="form-control", placeholder="Ex. Twisted Bow") }}
+            </div>
+            <span class="pull-right" style="margin-left:10px">
+              <input class="btn btn-primary mb-2" type="submit" value="Search">
+            </span>
+          </div>
+        </form>
+      </div>
 
-      <tr>
-        <td>{{ name }}</td>
-        <td>{{ sell_vol }}</td>
-        <td>{{ buy_vol }}</td>
-        <td>{{ price }}</td>
-      </tr>
-    </table>
+      <div class="col-sm-8">
+        <!-- Table -->
+        <div class="table-responsive-sm">
+          <table class="table table-striped">
+
+            <tr>
+              <th>ITEM</th>
+              <th>BEING SOLD</th>
+              <th>BEING BOUGHT</th>
+              <th>PRICE</th>
+            </tr>
+
+            <tr>
+              <td>{{ name }}</td>
+              <td>{{ sell_vol }}</td>
+              <td>{{ buy_vol }}</td>
+              <td>{{ price }}</td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}

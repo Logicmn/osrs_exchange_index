@@ -1,7 +1,8 @@
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, flash, request, redirect
 from flask_bootstrap import Bootstrap
-from wtforms import StringField
+from wtforms import StringField, SubmitField
 from flask_wtf import FlaskForm
+from wtforms.validators import InputRequired
 from grand_exchange.exchange import Item
 
 app = Flask(__name__)
@@ -9,16 +10,16 @@ app.secret_key = 'supersecret'
 bootstrap = Bootstrap(app)
 
 class SubmitForm(FlaskForm):
-    input = StringField('Item search')
+    input = StringField('Item search', validators=[InputRequired()])
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = SubmitForm()
     print(form.errors)
-
+    print(form.validate_on_submit())
     if form.validate_on_submit():
         id = form.input.data
-
+        print("hello")
         try:
             name = Item.name(id)
             price = Item.price(id)
