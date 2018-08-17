@@ -1,16 +1,11 @@
 from flask import Flask, render_template, flash, request, redirect
 from flask_bootstrap import Bootstrap
-from wtforms import StringField, SubmitField
-from flask_wtf import FlaskForm
-from wtforms.validators import InputRequired
-from grand_exchange.exchange import Item
+from exchange import Item
+from forms import SubmitForm
 
 app = Flask(__name__)
 app.secret_key = 'supersecret'
 bootstrap = Bootstrap(app)
-
-class SubmitForm(FlaskForm):
-    input = StringField('Item search', validators=[InputRequired()])
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

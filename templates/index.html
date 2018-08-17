@@ -23,8 +23,8 @@
 
       <div class="col-sm-4">
         <form class="form-inline" action="/" method="post">
-          <div class="form-group">
-            <div class="form-group">
+          <div class="form-group mb-2">
+            <div class="form-group mx-sm-3 mb-2">
               {{ form.hidden_tag() }}
               {{ form.csrf_token }}
               {{ form.input(class="form-control", placeholder="Ex. Twisted Bow") }}
