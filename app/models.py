@@ -2,8 +2,8 @@ from app import db
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    game_id = db.Column(db.Integer, index=True, unique=True)
-    name = db.Column(db.String(64), index=True, unique=True)
+    game_id = db.Column(db.Integer, index=True)
+    name = db.Column(db.String(64), index=True)
     price = db.Column(db.Integer, index=True)
     members = db.Column(db.Boolean, index=True)
     buy_avg = db.Column(db.Integer, index=True)
