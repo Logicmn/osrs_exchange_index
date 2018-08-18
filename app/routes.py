@@ -21,7 +21,7 @@ def index():
         item_name = str.lower(form.input.data)
         item = Item.query.filter_by(name=item_name).first()
         if item != None:
-            return render_template('index.html',form=form, id=item.game_id, name=item.name, price=item.price, members=item.members,
+            return render_template('index.html',form=form, id=item.game_id, name=item.name.capitalize(), price=item.price, members=item.members,
             buy_avg=item.buy_avg, sell_avg=item.sell_avg, buy_vol=item.buy_vol, sell_vol=item.sell_vol,
             total_vol=item.total_vol)
 
