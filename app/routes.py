@@ -20,14 +20,14 @@ def index():
     if form.validate_on_submit():
         item_name = str.lower(form.input.data)
         items = Item.query.filter(Item.name.contains(item_name)).all()
-        if items != None:
-            return render_template('index.html', form=form, items=items)
-            #return render_template('index.html',form=form, id=item.game_id, name=item.name.capitalize(), price=item.price, members=item.members,
-            #buy_avg=item.buy_avg, sell_avg=item.sell_avg, buy_vol=item.buy_vol, sell_vol=item.sell_vol,
-            #total_vol=item.total_vol)
 
-        else:
+        if not items:
+            print('unlisted')
             flash('This item you have searched is not listed on the Grand Exchange.')
             return render_template('index.html', form=form)
+
+        else:
+            return render_template('index.html', form=form, items=items,
+            item_name=item_name, number_of_results=len(items))
 
     return render_template('index.html', form=form)
