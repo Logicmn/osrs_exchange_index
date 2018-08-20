@@ -48,12 +48,14 @@
               <th>PRICE</th>
             </tr>
 
+            {% for item in items %}
             <tr>
-              <td>{{ name }}</td>
-              <td>{{ sell_vol }}</td>
-              <td>{{ buy_vol }}</td>
-              <td>{{ price }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.sell_vol }}</td>
+              <td>{{ item.buy_vol }}</td>
+              <td>{{ item.price }}</td>
             </tr>
+            {% endfor %}
 
           </table>
         </div>
