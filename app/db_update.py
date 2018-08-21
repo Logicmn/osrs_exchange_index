@@ -20,6 +20,7 @@ def update():
 
             db.session.delete(old_item)
             db.session.add(new_item)
+            
     db.session.commit()
 
 #if __name__ == '__main__':

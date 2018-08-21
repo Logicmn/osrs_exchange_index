@@ -1,12 +1,16 @@
 from flask import render_template, flash, request, redirect
+from flask_nav.elements import *
 
-from app import app, db
+from app import app, db, nav
 from app.forms import SubmitForm
 from app.exchange import GameItem
 from app.db_update import update
 from app.models import Item
 
-
+@nav.navigation('runeberg_navbar')
+def create_navbar():
+    index_view = View('Home', 'index')
+    return Navbar('Runeberg', index_view)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
