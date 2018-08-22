@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
-<!-- Content Block -->
 {% block page_title %} OSRS Grand Exchange {% endblock %}
 
 {% block content %}
@@ -37,6 +36,7 @@
         {% if items %}
         <h5>Your search for <span style="color: #337AB7;font-weight: bold;">{{ item_name }}</span> returned <span style="color: #337AB7;font-weight: bold;">{{ number_of_results }}</span> results.</h5>
         {% endif %}
+        <code>this is a test</code>
       </div>
 
       <div class="col-sm-8">
