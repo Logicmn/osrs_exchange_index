@@ -35,3 +35,7 @@ def index():
             item_name=item_name, number_of_results=len(items))
 
     return render_template('index.html', form=form)
+
+@app.route('/markets')
+def markets():
+    return render_template('markets.html')
