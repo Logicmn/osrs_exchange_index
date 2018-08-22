@@ -10,8 +10,10 @@
 {% endblock %}
 
 {% block styles -%}
-    {{ super() }}
-    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='sample-app.css')}}"> -->
+    {{super()}}  {# do not forget to call super or Bootstrap's own stylesheets
+                    will disappear! #}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='custom.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,800" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {#
